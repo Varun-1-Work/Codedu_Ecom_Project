@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block body %}
+
+<div class="container mt-5 mb-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+
+            <div class="card p-3">
+                <h3 class="mb-4">Shopping Cart</h3>
+
+                {% if cart_items %}
+                    {% for item in cart_items %}
+                        <div class="d-flex flex-row justify-content-between align-items-center p-3 mb-3 bg-light rounded">
+
+                            <!-- PRODUCT IMAGE -->
+                            <div class="mr-2">
+                                {% if item.image %}
+                                    <img src="{{ item.image }}" width="70" class="rounded">
+                                {% else %}
+                                    <img src="{% static 'images/no_image.png' %}" width="70" class="rounded">
+                                {% endif %}
+                            </div>
+
+                            <!-- PRODUCT DETAILS -->
+                            <div class="flex-grow-1 ml-3">
+                                <h5 class="font-weight-bold">{{ item.title }}</h5>
+                                <p class="mb-1 text-muted">Quantity: {{ item.quantity }}</p>
+                                <p class="mb-0">₹{{ item.price }}</p>
+                            </div>
+
+                            <!-- REMOVE BUTTON -->
+                            <div>
+                                <a href="{% url 'remove_from_cart' item.product_id %}" class="text-danger" title="Remove item">
+                                    <i class="fa fa-trash fa-lg"></i>
+                                </a>
+                            </div>
+                        </div>
+                    {% endfor %}
+
+                    <hr>
+
+                    <!-- TOTAL PRICE -->
+                    <h4 class="text-right">Total: ₹{{ cart_total }}</h4>
+
+                    <!-- DIRECT PAYMENT (Razorpay Hosted Payment Page) -->
+                    <div class="text-right mt-3">
+                        <form method="GET" action="{% url 'start-payment' %}">
+    <button type="submit" class="btn btn-warning">Proceed to Pay</button>
+</form>
+
+                                Proceed to Pay
+                            </button>
+                        </form>
+                    </div>
+
+                {% else %}
+                    <p>Your cart is empty.</p>
+                {% endif %}
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends 'layouts/main.html' %}
+{% block body %}
+<h2>DEBUG CART</h2>
+
+<h3>Raw session cart</h3>
+<pre>{{ raw_cart|safe }}</pre>
+
+<h3>Session keys</h3>
+<pre>{{ session_keys }}</pre>
+
+<p><a href="{% url 'cart_detail' %}">Go to cart page</a></p>
+{% endblock %}

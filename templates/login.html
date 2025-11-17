@@ -1,0 +1,72 @@
+{% extends 'layouts/main.html' %}
+{% load static %}
+
+
+{% block css %}
+<style>
+form {
+    width: 300px;
+    margin: auto;
+    text-align: center;
+}    
+
+h2{
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+label{
+    display: inline-block;
+    width: 80px;
+    text-align: left;
+}
+
+input[type='text']
+input[type='password'] {
+    width: 180px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    margin-bottom: 10px;
+}
+
+button {
+    padding: 30px;
+    background-color: #ACAF50;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #213621;
+}
+
+.error {
+    color: red;
+    margin-top: 10px;
+}
+
+</style>
+{% endblock css %}
+
+
+{% block body %}
+
+<form action="" method="post">
+{% csrf_token %}
+    <h2>Login Form</h2>
+    <label for="username">Username:</label>
+    <input type="text" id="username" name="username" placeholder="Enter username">
+    <br>
+    <label for="password">Password:</label>
+    <input type="password" name="password" id="password" placeholder="Enter password">
+    <br>
+    <button type="submit">LOGIN</button>
+</form>
+{% for messages in messages %}
+<h3 style="color: rgb(0, 0, 0);">{{messages}}</h3>
+{% endfor %}
+
+{% endblock body %}

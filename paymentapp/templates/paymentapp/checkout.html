@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Processing Payment...</title>
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+</head>
+<body>
+
+<h3 style="text-align:center;">Redirecting to secure payment page...</h3>
+
+<script>
+var options = {
+    "key": "{{ razorpay_key_id }}",
+    "amount": "{{ amount }}",
+    "currency": "INR",
+    "name": "FAMMS STORE",
+    "description": "Order Payment",
+    "order_id": "{{ razorpay_order_id }}",
+    "handler": function (response){
+        window.location.href = "/payment/success/";
+    },
+    "theme": {
+        "color": "#3399cc"
+    }
+};
+
+var rzp = new Razorpay(options);
+rzp.open();
+</script>
+
+</body>
+</html>

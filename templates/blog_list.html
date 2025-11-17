@@ -1,0 +1,110 @@
+{% extends 'layouts/main.html' %}
+{% load static %}
+
+{% block head_content %}
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <link rel="shortcut icon" href="{% static 'images/favicon.png' %}" type="">
+    <title>Famms - Fashion HTML Template</title>
+{% endblock head_content %}
+
+{% block css %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}" />
+    <link href="{% static 'css/font-awesome.min.css' %}" rel="stylesheet" />
+    <link href="{% static 'css/style.css' %}" rel="stylesheet" />
+    <link href="{% static 'css/responsive.css' %}" rel="stylesheet" />
+{% endblock css %}
+
+{% block body %}
+<body class="sub_page">
+
+    <!-- REMOVED HEADER (because main.html already includes navbar) -->
+
+    <section class="inner_page_head">
+        <div class="container_fuild">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="full">
+                        <h3>Blog List</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="why_section layout_padding">
+        <div class="container">
+            <div class="heading_container heading_center">
+                <h2>
+                    Why Shop With Us
+                </h2>
+            </div>
+            <div class="row">
+
+                <!-- Your 3 Icon Boxes – Unchanged -->
+                <div class="col-md-4">
+                    <div class="box ">
+                        <div class="img-box">
+                            <!-- SVG preserved -->
+                            ...
+                        </div>
+                        <div class="detail-box">
+                            <h5>Fast Delivery</h5>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="box ">
+                        <div class="img-box">
+                            <!-- SVG preserved -->
+                            ...
+                        </div>
+                        <div class="detail-box">
+                            <h5>Free Shipping</h5>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="box ">
+                        <div class="img-box">
+                            <!-- SVG preserved -->
+                            ...
+                        </div>
+                        <div class="detail-box">
+                            <h5>Best Quality</h5>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER – unchanged -->
+    <footer class="footer_section">
+        <div class="container">
+            <div class="row">
+                ...
+            </div>
+            <div class="footer-info">
+                <div class="col-lg-7 mx-auto px-0">
+                    <p>
+                        &copy; <span id="displayYear"></span> All Rights Reserved by
+                        <a href="https://themewagon.com/" target="_blank">Varun K Hari</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="{% static 'js/jquery-3.4.1.min.js' %}"></script>
+    <script src="{% static 'js/popper.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.js' %}"></script>
+    <script src="{% static 'js/custom.js' %}"></script>
+
+</body>
+</html>
+{% endblock body %}
